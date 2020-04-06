@@ -9,7 +9,13 @@
   }
   
   body {
-    /* position: relative; */
+    position: relative;
+    /* padding: 700px 0 0 0; */
+    margin: auto;
+    font-size: 1.1em;
+    line-height: 135%;
+    font-weight: normal;
+
     background-color: #f8d946;
     color: #000;
   }
@@ -23,6 +29,20 @@
   p {
     padding: 0;
     margin: 0 0 36px 0;
+  }
+
+  canvas {
+    position: absolute;
+  }
+
+  div.is-fixed {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+  }
+
+  div.is-hidden {
+      opacity: 0;
   }
 
   div.Texts {
@@ -54,11 +74,11 @@
     margin-left: 60px;
   }
 
-  div.circle-container {
+  /* div.circle-container {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+  } */
 
   div.circle { 
     background-color: black;
@@ -75,6 +95,19 @@
 
     shape-outside: circle(50% at 100% 50%) padding-box;
     transition: width 500ms ease-in-out, height 500ms ease-in-out;
-  
+  }
 
+  div.Text:last-child .circle {
+    float: left;
+    shape-outside: circle(50% at 0px 50%) padding-box;
+  }
+
+
+  @media only screen and (min-width: 800px) {
+    canvas {
+      left: 50%;
+      top: 50%;
+      transition: transform 500ms ease-in-out;
+      transform: translate(-50%, -50%) scale(0.8);
+    }
   }
