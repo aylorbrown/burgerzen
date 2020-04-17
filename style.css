@@ -10,7 +10,7 @@
   
   body {
     position: relative;
-    /* padding: 700px 0 0 0; */
+    padding: 700px 0 0 0;
     margin: auto;
     font-size: 1.1em;
     line-height: 135%;
@@ -18,6 +18,10 @@
 
     background-color: #f8d946;
     color: #000;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   h1 {
@@ -33,19 +37,20 @@
 
   canvas {
     position: absolute;
+    pointer-events: none;
   }
 
-  div.is-fixed {
+  .is-fixed {
     position: fixed;
     top: 50%;
     left: 50%;
   }
 
-  div.is-hidden {
+  .is-hidden {
       opacity: 0;
   }
 
-  div.Texts {
+  .Texts {
     width: 400px;
     position: relative;
     padding-bottom: 400px;
@@ -74,33 +79,24 @@
     margin-left: 60px;
   }
 
-  /* div.circle-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  } */
-
-  div.circle { 
-    background-color: black;
-    width: 400px;
-    height: 400px;
-
-    position: absolute;
+  div.circle {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    margin-top: 0;
     float: right;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    z-index: 1;
-
     shape-outside: circle(50% at 100% 50%) padding-box;
     transition: width 500ms ease-in-out, height 500ms ease-in-out;
+    pointer-events: none;
   }
+
 
   div.Text:last-child .circle {
     float: left;
     shape-outside: circle(50% at 0px 50%) padding-box;
   }
+
+  
 
 
   @media only screen and (min-width: 800px) {
