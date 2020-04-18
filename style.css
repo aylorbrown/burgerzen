@@ -1,54 +1,85 @@
 * {
     box-sizing: border-box;
   }
+
+@font-face {
+  font-family: "Toren Rotalic";
+  src: url("assets/Toren-Rotalic.otf");
+}
+
+@font-face {
+  font-family: "Toren Mono";
+  src: url("assets/Toren-Mono.otf");
+}
+
   
-  html,
-  body {
-    height: 100%;
-    margin: 0;
-  }
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
   
-  body {
-    position: relative;
-    padding: 700px 0 0 0;
-    margin: auto;
-    font-size: 1.1em;
-    line-height: 135%;
-    font-weight: normal;
+body {
+  position: relative;
+  padding: 700px 0 0 0;
+  margin: auto;
+  font-family: "Toren Mono";
+  font-size: 1.1em;
+  line-height: 135%;
+  font-weight: normal;
 
-    background-color: #f8d946;
-    color: #000;
+  background-color: #ea7ba5;
+  color: #000;
 
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+
+  /* cursor: url(), auto; */
+}
+
+h1 {
+  font-family: "Toren Rotalic";
+  font-size: 4rem;
+  font-weight: normal;
+  line-height: 100%;
+}
+
+p {
+  padding: 0;
+  margin: 0 0 36px 0;
+}
+
+canvas {
+  position: absolute;
+  pointer-events: none;
+}
+
+.repo {
+  font-family: "Toren Rotalic";
+  font-size: 24px;
+  border: 1px solid #a92333;
+  padding: 3px;
+  text-decoration: none;
+
+  position: absolute;
+  top: 10px;
+  left: 68px; 
   }
 
-  h1 {
-    font-size: 4rem;
-    font-weight: normal;
-    line-height: 100%;
-  }
+.repo:hover {
+  /* font-family: "Toren Mono"; */
+}
 
-  p {
-    padding: 0;
-    margin: 0 0 36px 0;
-  }
+.is-fixed {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
 
-  canvas {
-    position: absolute;
-    pointer-events: none;
-  }
-
-  .is-fixed {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-  }
-
-  .is-hidden {
-      opacity: 0;
-  }
+.is-hidden {
+  opacity: 0;
+}
 
   .Texts {
     width: 400px;

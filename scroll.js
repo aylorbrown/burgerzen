@@ -1,97 +1,99 @@
-// script.js
-// face
+// burger
 
+var yellow = '#ED0';
+var gold = '#EA0';
+var orange = '#E62';
+var garnet = '#a92333';
 const TAU = Zdog.TAU;
 
 let illo = new Zdog.Illustration({
   element: ".zdog-canvas",
   dragRotate: true,
-  zoom: 3
+  rotate: { x: -TAU/8 },
+  // zoom: 3
 });
 
-let outline = new Zdog.Ellipse({
+let burger = new Zdog.Anchor({
   addTo: illo,
-  width: 120,
-  height: 120,
-  stroke: 6,
-  color: "#000",
-  quarters: 1,
-  fill: false
+  translate: { y: 24 },
+  rotate: { x: TAU/4 },
 });
 
-outline.copy({
-  rotate: { z: TAU / 2 }
+var topBun = new Zdog.Hemisphere({
+  addTo: burger,
+  diameter: 250,
+  translate: { z: 44 },
+  stroke: 24,
+  color: orange,
+  // backface: gold,
 });
 
-outline.copy({
-  rotate: { z: TAU / 4 }
+// cheese
+new Zdog.Rect({
+  addTo: burger,
+  width: 220,
+  height: 220,
+  translate: { z: 24 },
+  stroke: 16,
+  color: yellow,
+  fill: true,
 });
 
-outline.copy({
-  rotate: { z: -TAU / 4 }
+// patty
+new Zdog.Ellipse({
+  addTo: burger,
+  diameter: 210,
+  stroke: 32,
+  color: garnet,
+  fill: true,
 });
 
-let eyeGroup = new Zdog.Group({
-  addTo: illo,
-  translate: { y: -18, x: -16, z: 40 },
-  rotate: { x: -TAU / 2.2 }
+// bottom bun
+new Zdog.Cylinder({
+  addTo: burger,
+  diameter: topBun.diameter,
+  length: 24,
+  translate: { z: -36 },
+  stroke: topBun.stroke,
+  color: topBun.color,
 });
 
-let eye = new Zdog.Ellipse({
-  addTo: eyeGroup,
-  width: 8,
-  height: 26,
-  stroke: 5,
-  color: "#000",
-  fill: true
+let seedAnchor = new Zdog.Anchor({
+  addTo: topBun,
 });
 
-eyeGroup.copyGraph({
-  translate: { y: -18, x: 16, z: 40 }
+let seedZ = ( topBun.diameter + topBun.stroke ) / 2 + 1;
+// seed
+new Zdog.Shape({
+  addTo: seedAnchor,
+  path: [ { y: -3 }, { y: 3 } ],
+  translate: { z: seedZ },
+  stroke: 11,
+  color: gold,
 });
 
-let mouth = new Zdog.Shape({
-  addTo: illo,
-  path: [
-    { x: -35, y: 20 },
-    {
-      bezier: [{ x: -18, y: 48 }, { x: 18, y: 48 }, { x: 35, y: 20 }]
-    }
-  ],
-  closed: false,
-  stroke: 7,
-  color: "#000",
-  translate: { y: -2, z: 40 }
+seedAnchor.copyGraph({
+  rotate: { x: 0.6 },
+});
+seedAnchor.copyGraph({
+  rotate: { x: -0.6 },
+});
+seedAnchor.copyGraph({
+  rotate: { y: -0.5 },
+});
+seedAnchor.copyGraph({
+  rotate: { y: 0.5 },
 });
 
-let wrinkle = new Zdog.Shape({
-  addTo: mouth,
-  path: [
-    { x: 0, y: 0 },
-    {
-      arc: [{ x: 6, y: -5 }, { x: 12, y: 0 }]
-    }
-  ],
-  translate: { x: -40.5, y: 23 },
-  rotate: { z: -TAU / 13 },
-  stroke: 6,
-  closed: false,
-  color: "#000"
-});
+function animate() {
+  illo.updateRenderGraph();
+  requestAnimationFrame( animate );
+}
 
-let head = new Zdog.Shape({
-  addTo: illo,
-  stroke: 110,
-  color: "#f8d946"
-});
+animate();
 
-wrinkle.copyGraph({
-  translate: { x: 29, y: 18 },
-  rotate: { z: Zdog.TAU / 12 }
-});
 
-// dance
-
+// movement
 const body = document.getElementsByTagName("body")[0];
 const elem = document.documentElement;
 
