@@ -105,6 +105,9 @@ canvas {
   width: 100%;
   justify-content: center;
   align-items: flex-start;
+
+  cursor: url("assets/ketchup.png"), auto;
+
 }
 
 .Text {
@@ -114,6 +117,9 @@ canvas {
   margin-right: 0px;
   line-height: 130%;
   padding-bottom: 40px;
+
+  cursor: url("assets/ketchup.png"), auto;
+
 }
 
 .Text:last-child {
