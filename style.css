@@ -17,6 +17,8 @@ html,
 body {
   height: 100%;
   margin: 0;
+  /* cursor: url("assets/ketchup.png"), auto; */
+
 }
   
 body {
@@ -34,6 +36,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+
+  cursor: url("assets/ketchup.png"), auto;
 }
 
 h1 {
@@ -47,25 +51,36 @@ h1 {
 p {
   padding: 0;
   margin: 0 0 36px 0;
+  cursor: url("assets/ketchup.png"), auto;
 
+}
+
+p::selection {
+  color: #a92333;
 }
 
 canvas {
   position: absolute;
   pointer-events: none;
+
+  cursor: url("assets/ketchup.png"), auto;
+
 }
 
 .repo {
   font-family: "Toren Rotalic";
   font-size: 24px;
-  border: 1px solid #a92333;
-  padding: 3px;
+  background-color: #a92333;
+  color: #ea7ba5;
+  border: none;
+  padding: 5px;
+  
   text-decoration: none;
 
   position: absolute;
   top: 10px;
-  left: 68px; 
-  }
+  right: 58px; 
+}
 
 .is-fixed {
   position: fixed;
@@ -106,7 +121,7 @@ canvas {
   margin-left: 60px;
 }
 
-div.circle {
+.circle {
     position: relative;
     width: 350px;
     height: 350px;
