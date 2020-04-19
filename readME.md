@@ -1,6 +1,6 @@
 ## Burger Zen 
 
-![Demo]("assets/demogif.gif")
+![Demo](assets/demogif.gif)
 
 ### Project Description 
 Reverse-engineer of a Surf Club website. I'm learning more cool scroll function, as well as utlizing the [Z Dog]() library.
