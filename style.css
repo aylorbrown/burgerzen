@@ -37,9 +37,10 @@ body {
 }
 
 h1 {
-  font-family: "Toren Rotalic";
+  font-family: barricada-pro, serif;
+  font-weight: 400;
+  font-style: normal;  
   font-size: 4rem;
-  font-weight: normal;
   line-height: 100%;
 }
 
@@ -66,10 +67,6 @@ canvas {
   left: 68px; 
   }
 
-.repo:hover {
-  /* font-family: "Toren Mono"; */
-}
-
 .is-fixed {
   position: fixed;
   top: 50%;
@@ -80,36 +77,36 @@ canvas {
   opacity: 0;
 }
 
-  .Texts {
-    width: 400px;
-    position: relative;
-    padding-bottom: 400px;
-    margin: 0 auto;
-    transition: width 500ms ease-in-out;
-  }
+.Texts {
+  width: 400px;
+  position: relative;
+  padding-bottom: 400px;
+  margin: 0 auto;
+  transition: width 500ms ease-in-out;
+}
 
-  div.Texts__content {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: flex-start;
-  }
+.Texts__content {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+}
 
-  div.Text {
-    font-weight: 500;
-    font-size: 1.3em;
-    text-align: right;
-    margin-right: 0px;
-    line-height: 130%;
-    padding-bottom: 40px;
-  }
+.Text {
+  font-weight: 500;
+  font-size: 1.3em;
+  text-align: right;
+  margin-right: 0px;
+  line-height: 130%;
+  padding-bottom: 40px;
+}
 
-  div.Text:last-child {
-    text-align: left;
-    margin-left: 60px;
-  }
+.Text:last-child {
+  text-align: left;
+  margin-left: 60px;
+}
 
-  div.circle {
+div.circle {
     position: relative;
     width: 350px;
     height: 350px;
@@ -118,22 +115,81 @@ canvas {
     shape-outside: circle(50% at 100% 50%) padding-box;
     transition: width 500ms ease-in-out, height 500ms ease-in-out;
     pointer-events: none;
+}
+
+
+.Text:last-child .circle {
+  float: left;
+  shape-outside: circle(50% at 0px 50%) padding-box;
+}
+
+@media (max-width: 799px) {
+
+  body {
+    padding: 200px 0 0 0;
+  }
+
+  canvas {
+    top: -160px !important;
+    left: -180px !important;
+    transform: scale(0.4);
+  }
+
+  .Texts__content {
+    display: block;
+  }
+
+  .repo {
+    background-color: #a92333;
+    color: #ea7ba5;
+    border: none;
+    font-size: 16px;
+
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .Text > .Title {
+    font-size: 2.6em;
+  }
+
+  /* .Text:first-child > .Title:after {
+    content: " Burger";
+  }
+
+  .Text:last-child > .Title:before {
+    content: "Burger ";
+  } */
+
+  .circle {
+    display: none;
+  }
+
+  .Texts {
+    width: 100%;
+    padding: 0 40px;
+    text-align: left;
   }
 
 
-  div.Text:last-child .circle {
-    float: left;
-    shape-outside: circle(50% at 0px 50%) padding-box;
+  .Text {
+    /* width: 100%; */
+    position: relative;
+    text-align: left;
+    margin: 0 auto 32px auto;
   }
 
-  
-
-
-  @media only screen and (min-width: 800px) {
-    canvas {
-      left: 50%;
-      top: 50%;
-      transition: transform 500ms ease-in-out;
-      transform: translate(-50%, -50%) scale(0.8);
-    }
+  .Text:last-child {
+    margin: auto;
   }
+
+}
+
+@media (min-width: 800px) {
+  canvas {
+    left: 50%;
+    top: 50%;
+    transition: transform 500ms ease-in-out;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
